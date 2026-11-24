@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Game Files</title>
+<style>
+  :root { --pink: #ff2e88; --pink-hover: #ff5ca3; --cyan: #2de2e6; --text: #f6efe9; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; overflow: hidden; position: relative;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    gap: 32px; padding: 6vh 6vw; text-align: center;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--text);
+    background: linear-gradient(#120420 0%, #2b0b4a 45%, #ff2e88 62%, #120420 62%);
+  }
+
+  /* Retro sun */
+  .sun {
+    position: absolute; left: 50%; top: 62%; z-index: 0;
+    width: min(46vw, 420px); aspect-ratio: 1; border-radius: 50%;
+    transform: translate(-50%, -100%);
+    background: linear-gradient(#ffd34a 0%, #ff8a3d 50%, #ff2e88 100%);
+    -webkit-mask: repeating-linear-gradient(#000 0 18px, transparent 18px 24px);
+            mask: repeating-linear-gradient(#000 0 18px, transparent 18px 24px);
+  }
+
+  /* Retro grid floor */
+  .grid {
+    position: absolute; left: -50%; right: -50%; top: 62%; bottom: -40%; z-index: 0;
+    background:
+      linear-gradient(var(--cyan) 1px, transparent 1px) 0 0 / 100% 48px,
+      linear-gradient(90deg, var(--cyan) 1px, transparent 1px) 0 0 / 64px 100%;
+    opacity: .45;
+    transform: perspective(300px) rotateX(60deg);
+    transform-origin: top;
+  }
+
+  h1, .buttons { position: relative; z-index: 1; }
+  h1 {
+    margin: 0;
+    font-family: "Arial Black", "Segoe UI Black", system-ui, sans-serif;
+    font-weight: 900; font-size: clamp(56px, 12vw, 160px);
+    line-height: .9; letter-spacing: 2px; text-transform: uppercase;
+    text-shadow: 4px 4px 0 var(--pink);
+  }
+  .buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+  .btn {
+    padding: 15px 36px; text-decoration: none; font-weight: 600; font-size: 15px;
+    letter-spacing: 2px; text-transform: uppercase;
+  }
+  .btn-exe { background: var(--pink); color: #1a0b14; }
+  .btn-exe:hover { background: var(--pink-hover); }
+  .btn-files { background: rgba(18, 4, 32, .8); color: var(--text); border: 1px solid var(--cyan); }
+  .btn-files:hover { background: var(--cyan); color: #120420; }
+  .btn:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+  @media (max-width: 600px) { .buttons { flex-direction: column; width: 100%; } }
+</style>
+</head>
+<body>
+  <div class="sun" aria-hidden="true"></div>
+  <div class="grid" aria-hidden="true"></div>
+
+  <h1>Game<br>Files</h1>
+  <div class="buttons">
+    <a class="btn btn-exe" href="game_scarlett_master.exe" download="game_scarlett_master.exe">exe</a>
+    <a class="btn btn-files" href="gamexbox.torrent" download="gamexbox.torrent">gamefiles</a>
+  </div>
+</body>
+</html>
